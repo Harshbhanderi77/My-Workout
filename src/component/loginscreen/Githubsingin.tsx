@@ -5,11 +5,11 @@ import {color} from '../../style/color';
 import auth from '@react-native-firebase/auth';
 
 export const Githubsingin: React.FC = () => {
-  const singinwithGithub = async (token: string) => {
+  const singinwithGithub = async () => {
     try {
-      const credential = auth.GithubAuthProvider.credential(token);
-      const userCredential = await auth().signInWithCredential(credential);
-      console.log('GitHub sign-in successful!', userCredential);
+      const provider = new auth.GithubAuthProvider();
+      const result = await auth().signInWithPopup(provider);
+      console.log('GitHub sign-in successful!', result);
     } catch (error) {
       console.error('GitHub sign-in failed!', error);
     }

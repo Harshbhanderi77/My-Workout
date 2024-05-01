@@ -11,7 +11,7 @@ export const Googlesingin: React.FC = () => {
     GoogleSignin.configure({
       webClientId:
         '744140446166-6f7a9c2qcph6ghoakatt60lrgukkofcp.apps.googleusercontent.com',
-      // scopes: ['profile', 'email'],
+      scopes: ['profile', 'email'],
       offlineAccess: true,
       forceCodeForRefreshToken: true,
       profileImageSize: 80,
@@ -29,12 +29,13 @@ export const Googlesingin: React.FC = () => {
       console.log(error);
     }
   };
+
   return (
     <View>
       <TouchableOpacity onPress={googlesingin}>
         <View
           style={{
-            marginTop: 20,
+            marginTop: 30,
             alignItems: 'center',
             justifyContent: 'center',
             borderWidth: 2,
