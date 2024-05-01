@@ -1,0 +1,18 @@
+export const Images = {
+  loginbackground: require('../loginbackground.png'),
+  loginlight: require('../loginlight.png'),
+  gymimg: require('../gymimg.png'),
+  user: require('../profile-user.png'),
+  menu: require('../menu.png'),
+  leftarrow: require('../leftarrow.png'),
+  show: require('../show.png'),
+  hide: require('../hidden.png'),
+  camera: require('../camera.png'),
+  googlemaps: require('../googlemaps.png'),
+  multimedia: require('../multimedia.png'),
+  bluetooth: require('../bluetooth.png'),
+  notification: require('../notification.png'),
+  select: require('../select.png'),
+  google: require('../google.png'),
+  github: require('../github.png'),
+};

@@ -1,0 +1,14 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "types": ["watermelondb"]
+  },
+
+  "compilerOptions": {
+    "noImplicitAny": true
+  },
+
+  "compilerOptions": {
+    "experimentalDecorators": true
+  },
+}
