@@ -10,14 +10,18 @@ export const Usercontact: React.FC = () => {
       style={{
         margin: 10,
       }}>
-      <Pressable onPress={() => navigate({screenName: Routes.Contect})}>
+      <Pressable
+        onPress={() => navigate({screenName: Routes.Contect})}
+        style={{
+          backgroundColor: color.blue,
+          borderRadius: 20,
+          padding: 6,
+        }}>
         <Image
           source={Images.user}
           style={{
-            width: 30,
-            height: 30,
-            backgroundColor: color.blue,
-            borderRadius: 10,
+            width: 24,
+            height: 24,
           }}
         />
       </Pressable>

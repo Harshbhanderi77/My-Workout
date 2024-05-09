@@ -58,6 +58,14 @@ export const Camera: React.FC = () => {
     <View>
       <View
         style={{flexDirection: 'row', alignItems: 'center', marginLeft: 10}}>
+        <View>
+          <Image
+            height={60}
+            width={60}
+            source={{uri: selectImage ? selectImage[0]?.uri : ''}}
+            style={{borderRadius: 50}}
+          />
+        </View>
         <TouchableOpacity
           style={{
             backgroundColor: color.blue,
@@ -66,7 +74,7 @@ export const Camera: React.FC = () => {
             borderRadius: 30,
             alignItems: 'center',
             justifyContent: 'center',
-            marginRight: 40,
+            marginRight: 10,
           }}
           onPress={() => opencamera()}>
           <Image
@@ -77,14 +85,6 @@ export const Camera: React.FC = () => {
             }}
           />
         </TouchableOpacity>
-        <View style={{marginTop: 20}}>
-          <Image
-            height={100}
-            width={100}
-            source={{uri: selectImage ? selectImage[0]?.uri : ''}}
-            style={{borderRadius: 20}}
-          />
-        </View>
       </View>
     </View>
   );

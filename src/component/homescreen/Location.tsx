@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {
+  ActivityIndicator,
   Image,
   PermissionsAndroid,
   Platform,
@@ -18,9 +19,34 @@ import Geolocation, {
 export const Location: React.FC = () => {
   const [locationlat, setLocationlat] = useState<GeolocationResponse>();
   const [locationlog, setLocationlog] = useState<GeolocationResponse>();
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
-    LocationPermission;
+    getLocation();
+    const intervalId = setInterval(getLocation, 40000);
+    return () => clearInterval(intervalId);
   }, []);
+
+  const getLocation = async () => {
+    setLoading(true);
+    const result = await LocationPermission();
+    if (result) {
+      Geolocation.getCurrentPosition(
+        position => {
+          setLocationlat(position);
+          setLocationlog(position);
+          setLoading(false);
+        },
+        error => {
+          console.log(error.code, error.message);
+          setLoading(false);
+        },
+        {enableHighAccuracy: false, timeout: 15000, maximumAge: 10000},
+      );
+    } else {
+      setLoading(false);
+    }
+  };
 
   const LocationPermission = async () => {
     try {
@@ -38,40 +64,13 @@ export const Location: React.FC = () => {
         return true;
       } else {
         console.log('Location access denied');
+        return false;
       }
     } catch (error) {
       console.error('Location permission:', error);
+      return false;
     }
   };
-
-  const geolocation = async () => {
-    const result = await LocationPermission();
-    if (result) {
-      Geolocation?.getCurrentPosition(
-        position => {
-          // console.log(position.coords.latitude);
-          console.log(position);
-          setLocationlat(position);
-          setLocationlog(position);
-        },
-        error => {
-          console.log(error.code, error.message);
-        },
-        {enableHighAccuracy: false, timeout: 15000, maximumAge: 10000},
-      );
-    }
-  };
-
-  // const Fetchaddress = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       `https://maps.googleapis.com/maps/api/geocode/json?latlng=${locationlat},${locationlog}&key=YOUR_GOOGLE_MAPS_API_KEY`,
-  //     );
-  //     const data: GeolocationResponse = await response.json();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   return (
     <View>
@@ -80,7 +79,7 @@ export const Location: React.FC = () => {
           flexDirection: 'row',
           alignItems: 'center',
           marginLeft: 10,
-          marginTop: 20,
+          marginTop: 0,
         }}>
         <TouchableOpacity
           style={{
@@ -92,9 +91,7 @@ export const Location: React.FC = () => {
             justifyContent: 'center',
             marginRight: 20,
           }}
-          onPress={() => {
-            geolocation();
-          }}>
+          onPress={getLocation}>
           <Image
             source={Images.googlemaps}
             style={{
@@ -103,10 +100,14 @@ export const Location: React.FC = () => {
             }}
           />
         </TouchableOpacity>
-        <Text style={{color: color.black}}>
-          Lat: {locationlat?.coords.latitude + '\n'}
-          Long: {locationlat?.coords.longitude}
-        </Text>
+        {loading ? (
+          <ActivityIndicator color={color.black} size="small" />
+        ) : (
+          <Text style={{color: color.black}}>
+            Lat: {locationlat?.coords.latitude + '\n'}
+            Long: {locationlat?.coords.longitude}
+          </Text>
+        )}
       </View>
     </View>
   );

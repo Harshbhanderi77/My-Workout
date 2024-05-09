@@ -14,6 +14,11 @@ import {Homescreen} from '../screen/homescreen';
 import {Contectscreen} from '../screen/Contectscreen';
 import {Audioplay} from '../component/homescreen/Audioplay';
 import {Notificationscreen} from '../screen/Notificationscreen';
+import {Workoutdeatils} from '../component/contectscreen/Workoutdeatils';
+import {Runningdetails} from '../component/contectscreen/Runningdetails';
+import {Pushupsdetails} from '../component/contectscreen/Pushupsdetails';
+import {Cyclingdetails} from '../component/contectscreen/Cyclingdetails';
+import {Crossfitdetails} from '../component/contectscreen/Crossfitdetails';
 
 export type StackParamsList = {
   Splashscreen: undefined;
@@ -23,6 +28,11 @@ export type StackParamsList = {
   Contectscreen: undefined;
   Audioplay: undefined;
   Notificationscreen: undefined;
+  Workoutdeatils: undefined;
+  Runningdetails: undefined;
+  Pushupsdetails: undefined;
+  Cyclingdetails: undefined;
+  Crossfitdetails: undefined;
 };
 
 const navigationRef = createNavigationContainerRef<StackParamsList>();
@@ -37,6 +47,11 @@ export enum Routes {
   Contect = 'Contectscreen',
   Audioplay = 'Audioplay',
   Notificationscreen = 'Notificationscreen',
+  Workoutdeatils = 'Workoutdeatils',
+  Runningdetails = 'Runningdetails',
+  Pushupsdetails = 'Pushupsdetails',
+  Cyclingdetails = 'Cyclingdetails',
+  Crossfitdetails = 'Crossfitdetails',
 }
 
 interface NavigationProps {
@@ -93,6 +108,11 @@ export const Navigation: React.FC = () => {
           name="Notificationscreen"
           component={Notificationscreen}
         />
+        <RootStack.Screen name="Workoutdeatils" component={Workoutdeatils} />
+        <RootStack.Screen name="Runningdetails" component={Runningdetails} />
+        <RootStack.Screen name="Pushupsdetails" component={Pushupsdetails} />
+        <RootStack.Screen name="Cyclingdetails" component={Cyclingdetails} />
+        <RootStack.Screen name="Crossfitdetails" component={Crossfitdetails} />
       </RootStack.Navigator>
     </NavigationContainer>
   );

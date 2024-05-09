@@ -7,20 +7,13 @@ import {Routes, replace} from '../../screennavigation/navigation';
 
 export const Githubsingin: React.FC = () => {
   const singinwithGithub = async () => {
-    // try {
-    //   const provider = new auth.GithubAuthProvider();
-    //   const result = await auth().signInWithPopup(provider);
-    //   console.log('GitHub sign-in successful!', result);
-    // } catch (error) {
-    //   console.error('GitHub sign-in failed!', error);
-    // }
     try {
       const githubProvider = new auth.OAuthProvider('github.com');
-      githubProvider.addScope('repo');
-      githubProvider.addScope('user');
+      // githubProvider.addScope('repo');
+      // githubProvider.addScope('user');
       const result = await auth().signInWithPopup(githubProvider);
-      console.log('GitHub sign-in successful!', result);
       replace({screenName: Routes.Home});
+      console.log('GitHub sign-in successful!', result);
     } catch (error) {
       console.error('GitHub sign-in failed!', error);
     }
@@ -56,5 +49,4 @@ export const Githubsingin: React.FC = () => {
     </View>
   );
 };
-
 const styles = StyleSheet.create({});

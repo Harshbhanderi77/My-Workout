@@ -1,59 +1,78 @@
 import React, {useEffect} from 'react';
-import {Alert, Text, TouchableOpacity, View} from 'react-native';
-import {Camera} from '../component/homescreen/Camera';
-import {Location} from '../component/homescreen/Location';
+import {
+  Alert,
+  PermissionsAndroid,
+  Platform,
+  ScrollView,
+  View,
+} from 'react-native';
 import {color} from '../style/color';
-import {Recodeing} from '../component/homescreen/Recoding';
-import {Bluetooth} from '../component/homescreen/Bluetooth';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {replace, Routes} from '../screennavigation/navigation';
 import messaging from '@react-native-firebase/messaging';
 import {Mainheader} from '../component/homescreen/Mainheader';
+import {Sliderscreen} from '../component/homescreen/Sliderscreen';
+import {Bottommenu} from '../component/homescreen/Bottommenu';
+import {Workout} from '../component/homescreen/Workout';
+import {Running} from '../component/homescreen/Running';
+import {Pushups} from '../component/homescreen/Pushups';
+import {Cycling} from '../component/homescreen/Cycling';
+import {Crossfit} from '../component/homescreen/Crossfit';
+import {request} from 'react-native-permissions';
 
 export const Homescreen: React.FC = () => {
-  const logout = async () => {
-    try {
-      await GoogleSignin.signOut();
-      replace({screenName: Routes.Login});
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
       Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
     });
     return unsubscribe;
   }, []);
-
   useEffect(() => {
     getdevicetoken();
   }, []);
+
+  // useEffect(() => {
+  //   NotificationsPermission();
+  // }, []);
 
   const getdevicetoken = async () => {
     const token = await messaging().getToken();
     console.log(token);
   };
+
+  // const NotificationsPermission = async () => {
+  //   try {
+  //     let permissionResult;
+  //     if (Platform.OS === 'android') {
+  //       permissionResult = await PermissionsAndroid.request(
+  //         PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS,
+  //       );
+  //     } else {
+  //       permissionResult = await request(
+  //         'android.permission.POST_NOTIFICATIONS',
+  //       );
+  //     }
+  //     if (permissionResult === 'granted') {
+  //     } else {
+  //       console.log('Notification access denied');
+  //     }
+  //   } catch (error) {
+  //     console.error('Notification permission:', error);
+  //   }
+  // };
+
   return (
     <View style={{backgroundColor: color.white, flex: 1}}>
       <Mainheader />
-      <View
-        style={{
-          // flexDirection: 'row',
-          // justifyContent: 'space-between',
-          margin: 20,
-        }}>
-        <View>
-          <TouchableOpacity onPress={logout}>
-            <Text style={{color: color.black}}>logout</Text>
-          </TouchableOpacity>
-        </View>
-        <Camera />
-        <Location />
-        <Recodeing />
-        <Bluetooth />
-      </View>
+      <Sliderscreen />
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={{marginBottom: 80}}>
+        <Running />
+        <Crossfit />
+        <Workout />
+        <Pushups />
+        <Cycling />
+      </ScrollView>
+      <Bottommenu />
     </View>
   );
 };

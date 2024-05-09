@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import {Usercontact} from './usercontact';
 import {color} from '../../style/color';
-import {Notifications} from './Notifications';
+import {Logout} from '../contectscreen/Logout';
 
 export const Mainheader: React.FC = () => {
   return (
@@ -13,7 +13,7 @@ export const Mainheader: React.FC = () => {
         alignItems: 'center',
         backgroundColor: color.gray1,
       }}>
-      <Notifications />
+      <Usercontact />
       <Text
         style={{
           color: color.black,
@@ -23,7 +23,7 @@ export const Mainheader: React.FC = () => {
         }}>
         My Workout
       </Text>
-      <Usercontact />
+      <Logout />
     </View>
   );
 };

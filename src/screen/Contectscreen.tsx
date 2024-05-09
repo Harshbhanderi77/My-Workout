@@ -135,15 +135,16 @@ export const Contectscreen: React.FC = () => {
           flexDirection: 'row',
           backgroundColor: color.gray1,
           padding: 10,
+          alignItems: 'center',
         }}>
-        <Pressable onPress={() => goBack()}>
+        <Pressable
+          onPress={() => goBack()}
+          style={{backgroundColor: color.blue, borderRadius: 20, padding: 4}}>
           <Image
             source={Images.leftarrow}
             style={{
-              width: 30,
-              height: 30,
-              backgroundColor: color.blue,
-              borderRadius: 6,
+              width: 26,
+              height: 26,
             }}
           />
         </Pressable>

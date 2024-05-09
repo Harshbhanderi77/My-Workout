@@ -15,4 +15,6 @@ export const Images = {
   select: require('../select.png'),
   google: require('../google.png'),
   github: require('../github.png'),
+  backgoundimg: require('../backgoundimg.png'),
+  logout: require('../logout.png'),
 };
