@@ -231,7 +231,7 @@ export const Loginscreen: React.FC = () => {
         <View style={{marginTop: 20}}>
           <Loginbutton screenName={'Login'} onPrees={handleLoginPress} />
         </View>
-        {/*<Googlesingin />*/}
+        <Googlesingin />
         {/*<Githubsingin />*/}
       </ScrollView>
     </View>

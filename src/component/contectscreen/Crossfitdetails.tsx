@@ -76,9 +76,7 @@ export const Crossfitdetails: React.FC = () => {
                       width: '100%',
                       resizeMode: 'contain',
                     }}
-                    source={{
-                      uri: 'https://ultracarepro.in/wp-content/uploads/2019/10/10.png',
-                    }}
+                    source={Images.crossfitimg}
                   />
                   <Text style={styles.Heading}>
                     1. Warm-Up (10-15 minutes):

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, Image, Text, View} from 'react-native';
+import {FlatList, Image, StyleSheet, Text, View} from 'react-native';
 import {color} from '../../style/color';
 
 const sliderArray = [
@@ -24,14 +24,17 @@ const sliderArray = [
 ];
 export const Sliderscreen: React.FC = () => {
   return (
-    <View>
+    <View
+      style={{
+        backgroundColor: color.blue,
+      }}>
       <FlatList
         data={sliderArray}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         renderItem={({item}) => {
           return (
-            <View style={{marginLeft: 6, marginTop: 20}}>
+            <View style={{marginLeft: 6, marginVertical: 10}}>
               <Image
                 style={{height: 100, width: 360, borderRadius: 16}}
                 source={{uri: item.sliderImage}}
@@ -55,3 +58,4 @@ export const Sliderscreen: React.FC = () => {
   );
 };
 
+const styles = StyleSheet.create({});

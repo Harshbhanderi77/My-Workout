@@ -15,7 +15,7 @@ export const Splashscrlogo: React.FC = () => {
       <View
         style={{
           backgroundColor: color.blue,
-          borderRadius: 80,
+          borderRadius: 100,
           padding: 10,
           elevation: 20,
         }}>

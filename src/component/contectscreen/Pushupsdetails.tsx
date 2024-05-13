@@ -95,9 +95,7 @@ export const Pushupsdetails: React.FC = () => {
                       width: '100%',
                       resizeMode: 'contain',
                     }}
-                    source={{
-                      uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDkeD1akkli5kFanjgpmmR-5EbZvcIVrIMNUUA01EObmWteaPqGdcxcNbJKdAlOztn1e0&usqp=CAU',
-                    }}
+                    source={Images.pushupsimg}
                   />
                   <Text style={styles.Heading}>1. Warm-Up (5-10 minutes):</Text>
                   <Text style={styles.Deatils}>

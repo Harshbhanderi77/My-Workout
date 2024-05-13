@@ -76,9 +76,7 @@ export const Workoutdeatils: React.FC = () => {
                       width: '100%',
                       resizeMode: 'cover',
                     }}
-                    source={{
-                      uri: 'https://cdn.vectorstock.com/i/500p/36/60/workout-man-set-doing-fitness-exercises-vector-45473660.jpg',
-                    }}
+                    source={Images.powerliftingimg}
                   />
                   <Text style={styles.Heading}>1. Warm-up:</Text>
                   <Text style={styles.Deatils}>

@@ -76,9 +76,7 @@ export const Cyclingdetails: React.FC = () => {
                       width: '100%',
                       resizeMode: 'contain',
                     }}
-                    source={{
-                      uri: 'https://www.zellamsee-kaprun.com/bilder/bike/gravel-bike/7840/image-thumb__7840__auto_50aa5baf05281f6b6988b9abf8a8824f/gravelbike-tour-c-salzburg-land-tourismus.jpg',
-                    }}
+                    source={Images.cyclingimg}
                   />
                   <Text style={styles.Heading}>1. Warm-Up (5-10 minutes):</Text>
                   <Text style={styles.Deatils}>

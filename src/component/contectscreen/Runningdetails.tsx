@@ -3,6 +3,7 @@ import {FlatList, Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import {color} from '../../style/color';
 import {goBack} from '../../screennavigation/navigation';
 import {Images} from '../../assets/typimg/image';
+
 const ImageArray = [
   {
     Id: 1,
@@ -76,9 +77,7 @@ export const Runningdetails: React.FC = () => {
                       width: '100%',
                       resizeMode: 'contain',
                     }}
-                    source={{
-                      uri: 'https://transform.octanecdn.com/crop/1000x600/https://octanecdn.com/prolianceorthopedicassociatescom/run-or-walk-1-1.jpg',
-                    }}
+                    source={Images.runningimg}
                   />
                   <Text style={styles.Heading}>1. Warm-Up (5-10 minutes):</Text>
                   <Text style={styles.Deatils}>
@@ -111,7 +110,8 @@ export const Runningdetails: React.FC = () => {
                     pace to a slow jog or walk for 5-10 minutes.
                     {'\n'}• Hold each stretch for 15-30 seconds without
                     bouncing. {'\n'}• Incorporate static stretches targeting
-                    major muscle groups such as quadriceps, hamstrings, hips.{'\n'}
+                    major muscle groups such as quadriceps, hamstrings, hips.
+                    {'\n'}
                   </Text>
                 </View>
 

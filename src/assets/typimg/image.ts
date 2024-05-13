@@ -17,4 +17,9 @@ export const Images = {
   github: require('../github.png'),
   backgoundimg: require('../backgoundimg.png'),
   logout: require('../logout.png'),
+  runningimg: require('../runningimg.png'),
+  crossfitimg: require('../crossfitimg.png'),
+  powerliftingimg: require('../powerliftingimg.png'),
+  pushupsimg: require('../pushupsimg.png'),
+  cyclingimg: require('../cyclingimg.png'),
 };

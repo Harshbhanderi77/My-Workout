@@ -11,7 +11,7 @@ const ImageArray = [
     Name: 'Power lifting',
   },
 ];
-export const Workout: React.FC = () => {
+export const Powerlifting: React.FC = () => {
   return (
     <View style={{backgroundColor: '#fff'}}>
       <FlatList
