@@ -15,6 +15,7 @@ import {Inputsingup} from '../component/singupscreen/inputsingup';
 import {replace, Routes} from '../screennavigation/navigation';
 import auth from '@react-native-firebase/auth';
 import ScrollView = Animated.ScrollView;
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const Singupscreen: React.FC = () => {
   const [name, setName] = useState('');
@@ -100,13 +101,34 @@ export const Singupscreen: React.FC = () => {
     // dbHelper.sinupDatabase(name, email, phoneNumber, password);
     singinuser(email, password);
     // return isValid;
-    if (isValid) {
-      replace({screenName: Routes.Home});
-    }
+    // if (isValid) {
+    //   replace({screenName: Routes.Home});
+    // }
+    return isValid;
   };
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
+  };
+  const handleLoginPress = async () => {
+    // if (handleSingup()) {
+    //   await AsyncStorage.setItem('singup', 'true');
+    //   replace({screenName: Routes.Home});
+    // } else {
+    //   console.log('Singup failed');
+    // }
+
+    try {
+      const isSignupSuccessful = await handleSingup();
+      if (isSignupSuccessful) {
+        await AsyncStorage.setItem('signup', 'true');
+        replace({screenName: Routes.Home});
+      } else {
+        console.log('Signup failed');
+      }
+    } catch (error) {
+      console.error('Error during signup:', error);
+    }
   };
 
   const singup = [
@@ -216,7 +238,7 @@ export const Singupscreen: React.FC = () => {
           </TouchableOpacity>
         </View>
         <View style={{marginTop: 20}}>
-          <Loginbutton screenName={'Singin'} onPrees={handleSingup} />
+          <Loginbutton screenName={'Singin'} onPrees={handleLoginPress} />
         </View>
       </ScrollView>
     </View>

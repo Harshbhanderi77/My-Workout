@@ -2,7 +2,6 @@ import React from 'react';
 import {FlatList, Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import {color} from '../../style/color';
 import {navigate, Routes} from '../../screennavigation/navigation';
-import {Crossfitdetails} from '../contectscreen/Crossfitdetails';
 
 const ImageArray = [
   {

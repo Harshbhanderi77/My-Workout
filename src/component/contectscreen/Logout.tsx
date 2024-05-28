@@ -4,6 +4,7 @@ import {color} from '../../style/color';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {replace, Routes} from '../../screennavigation/navigation';
 import {Images} from '../../assets/typimg/image';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const Logout: React.FC = () => {
   useEffect(() => {

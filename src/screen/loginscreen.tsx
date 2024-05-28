@@ -17,6 +17,7 @@ import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
 import ScrollView = Animated.ScrollView;
 import {Githubsingin} from '../component/loginscreen/Githubsingin';
 import {Googlesingin} from '../component/loginscreen/Googlesingin';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const Loginscreen: React.FC = () => {
   const [name, setName] = useState('');
@@ -167,10 +168,13 @@ export const Loginscreen: React.FC = () => {
     // }
   };
 
-  const handleLoginPress = () => {
-    const isValid = handleLogin();
-    if (isValid) {
+  const handleLoginPress = async () => {
+    if (handleLogin()) {
+      console.log('Login successful');
+      await AsyncStorage.setItem('login', 'true');
       replace({screenName: Routes.Home});
+    } else {
+      console.log('Login failed');
     }
   };
 

@@ -101,15 +101,17 @@ export const Crossfitdetails: React.FC = () => {
                   </Text>
                   <Text style={styles.Heading}>Round 1:</Text>
                   <Text style={styles.Deatils}>
-                    {'\n'}• 10-15 Burpees
-                    {'\n'}• 15-20 Air Squats
+                    {' '}
+                    • 10-15 Burpees
+                    {'\n'} • 15-20 Air Squats
                     {'\n'} • 10-12 Push-Ups
                     {'\n'} • 20-30 seconds of Jump Rope
                     {'\n'} • Rest for 1-2 minutes after completing the round
                   </Text>
                   <Text style={styles.Heading}>Round 2:</Text>
                   <Text style={styles.Deatils}>
-                    {'\n'} • 10-12 Pull-Ups or Rows
+                    {' '}
+                    • 10-12 Pull-Ups or Rows
                     {'\n'} • 12-15 Kettlebell Swings
                     {'\n'} • 10-15 Box Jumps or Step-Ups
                     {'\n'} • 30-60 seconds of Plank Hold
